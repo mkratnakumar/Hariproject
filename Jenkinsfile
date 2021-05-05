@@ -10,7 +10,7 @@ node('docker'){
         }
        
     stage('Docker push'){
-            docker.withRegistry('http://192.168.0.105:8081', 'd4ad66d0-791c-4ee8-8953-f91deab9fc00') { //Push the image to private registry
+            docker.withRegistry('http://192.168.0.105:8081/', '2bfcee9b-32d5-4dfc-81f0-615448b0c1f3') { //Push the image to private registry
             myapp.push()
             }
         }
