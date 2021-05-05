@@ -1,4 +1,4 @@
-node(''){
+pipeline{
     def myapp //variable to define the built image
    
     stage('Checkout SCM'){
