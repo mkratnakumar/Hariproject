@@ -2,7 +2,7 @@ node('docker'){
     def myapp //variable to define the built image
    
     stage('Checkout SCM'){
-        sh "https://github.com/mkratnakumar/Hariproject.git"
+        checkout scm
         }
        
     stage('Docker build'){
