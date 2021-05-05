@@ -2,7 +2,7 @@ pipeline{
     def myapp //variable to define the built image
    
     stage('Checkout SCM'){
-        https://github.com/mkratnakumar/Hariproject.git
+        sh "https://github.com/mkratnakumar/Hariproject.git"
         }
        
     stage('Docker build'){
