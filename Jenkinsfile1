@@ -3,8 +3,14 @@ node {
     checkout scm
 
     docker.withRegistry('http://192.168.0.106:8081', 'c4e60567-f349-47e0-af84-a2491b0d815c') {
+    environment {
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "https"
+        NEXUS_URL = "192.168.0.106:8081"
+        NEXUS_REPOSITORY = "http://192.168.0.106:8081/repository/dockerr/"
+        NEXUS_CREDENTIAL_ID = "c4e60567-f349-47e0-af84-a2491b0d815c"
 
-        def app = docker.build("http://192.168.0.106:8081/repository/dockerr/:${env.BUILD_ID}")
+        def app = docker.build("http://192.168.0.106:8081/repository/dockerr/:${environment.BUILD_ID}")
 
         /* Push the container to the custom Registry */
         app.push()
