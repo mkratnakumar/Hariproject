@@ -3,7 +3,7 @@ node {
 
     docker.withRegistry('http://192.168.0.106:8081/repository/dockerr/', 'c4e60567-f349-47e0-af84-a2491b0d815c') {
 
-        def customImage = docker.build("my-image:${env.BUILD_ID}")
+        def customImage = docker.build("http://192.168.0.106:8081/repository/dockerr/:${env.BUILD_ID}")
 
         /* Push the container to the custom Registry */
         customImage.push()
